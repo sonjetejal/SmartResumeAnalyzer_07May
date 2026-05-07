@@ -162,7 +162,7 @@ public class ResumeController : Controller
             recentDetails.Add(new { Id = d.Id, FileName = r?.FileName ?? d.Id, Downloaded = d.Downloaded });
         }
         ViewBag.RecentDownloads = recentDetails;
-
+         
         return View(all);
     }
 }
