@@ -1,0 +1,71 @@
+@{
+    ViewData["Title"] = "About";
+}
+
+<div class="py-5 text-center">
+    <i class="bi bi-file-earmark-person display-1 text-primary"></i>
+    <h1 class="mt-3 fw-bold">About Smart Resume Analyzer</h1>
+    <p class="lead text-muted">AI-assisted resume analysis using ML.NET — extract skills, score your resume, and get recommendations.</p>
+    <p class="text-muted small">After you upload and analyze a resume, its detected technical skills will appear here.</p>
+</div>
+
+<div class="row g-4">
+    <div class="col-lg-4">
+        <div class="card p-4 h-100">
+            <h5 class="fw-semibold">Analysis Metrics</h5>
+            <div class="mt-3">
+                <p class="mb-2"><strong>Resumes analyzed:</strong> <span class="ms-2">@ViewBag.AnalyzedCount</span></p>
+                <p class="mb-2"><strong>Last analyzed:</strong> <span class="ms-2">@ViewBag.LastAnalyzed</span></p>
+                <p class="mb-2"><strong>Last file:</strong>
+                    @if (!string.IsNullOrEmpty(ViewBag.LastFile as string))
+                    {
+                        <span class="ms-2">@ViewBag.LastFile</span>
+                        @if (!string.IsNullOrEmpty(ViewBag.LastFileId as string))
+                        {
+                            <a asp-controller="Resume" asp-action="Results" asp-route-id="@ViewBag.LastFileId" class="btn btn-sm btn-outline-secondary ms-3">View</a>
+                        }
+                    }
+                    else
+                    {
+                        <span class="text-muted ms-2">—</span>
+                    }
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-8">
+        <div class="card p-4 h-100">
+            <h5 class="fw-semibold">Top Skills</h5>
+            <p class="text-muted small">Showing technical skills detected from the most recently uploaded analyzed resume (or aggregated if none).</p>
+            <div class="mt-3">
+                @if (ViewBag.TopSkills != null && ((IEnumerable<dynamic>)ViewBag.TopSkills).Any())
+                {
+                    foreach (var s in ViewBag.TopSkills)
+                    {
+                        <span class="badge bg-primary me-1 mb-1 skill-badge">@s.Name</span>
+                    }
+                }
+                else
+                {
+                    <div class="text-muted">No skills available yet. Analyze a resume to populate this list.</div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row g-4 mt-4">
+    <div class="col-md-6">
+        <div class="card p-4 h-100">
+            <h5 class="fw-semibold">How it works</h5>
+            <p class="text-muted small">Upload a resume (PDF, DOCX or TXT). The app extracts text, predicts skills with ML.NET, and computes category scores and recommendations.</p>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card p-4 h-100">
+            <h5 class="fw-semibold">Privacy</h5>
+            <p class="text-muted small">Resumes are stored locally for demo purposes. Remove any personal data before sharing publicly.</p>
+        </div>
+    </div>
+</div>

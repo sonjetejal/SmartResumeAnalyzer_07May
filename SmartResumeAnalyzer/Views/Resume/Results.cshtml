@@ -1,0 +1,131 @@
+@model SmartResumeAnalyzer.Models.Resume
+@{
+    ViewData["Title"] = "Analysis Results";
+    var analysis = Model.Analysis!;
+    var score = analysis.OverallScore;
+    var scoreClass = score >= 75 ? "score-high" : score >= 50 ? "score-mid" : "score-low";
+}
+
+<div class="d-flex align-items-center justify-content-between mb-4">
+    <h2><i class="bi bi-bar-chart-line me-2 text-primary"></i>Analysis Results</h2>
+    <div>
+        <a asp-action="ATSScore" asp-route-id="@Model.Id" class="btn btn-outline-primary me-2">
+            <i class="bi bi-shield-check me-1"></i>ATS Score
+        </a>
+        <a asp-action="Analyze" class="btn btn-outline-secondary">
+            <i class="bi bi-arrow-repeat me-1"></i>Analyze Another
+        </a>
+    </div>
+</div>
+
+<div class="row g-4 mb-4">
+    <div class="col-md-3 text-center">
+        <div class="card p-4">
+            <p class="text-muted small mb-2 fw-semibold text-uppercase">Overall Score</p>
+            <div class="score-circle @scoreClass">@score.ToString("F0")</div>
+            <p class="mt-2 mb-0 text-muted small">out of 100</p>
+        </div>
+    </div>
+    <div class="col-md-9">
+        <div class="card p-4 h-100">
+            <p class="fw-semibold mb-3">Category Scores</p>
+            @foreach (var cat in analysis.CategoryScores)
+            {
+                var pct = (int)Math.Min(100, cat.Value);
+                var barClass = pct >= 75 ? "bg-success" : pct >= 50 ? "bg-warning" : "bg-danger";
+                <div class="mb-2">
+                    <div class="d-flex justify-content-between small mb-1">
+                        <span>@cat.Key</span><span class="fw-semibold">@pct%</span>
+                    </div>
+                    <div class="progress" style="height:10px">
+                        <div class="progress-bar @barClass" style="width:@pct%"></div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@if (!string.IsNullOrEmpty(analysis.SummaryAnalysis))
+{
+    <div class="alert alert-info mb-4">
+        <i class="bi bi-info-circle me-2"></i>@analysis.SummaryAnalysis
+    </div>
+}
+
+<div class="row g-4">
+    @if (analysis.ExtractedSkills.Count > 0)
+    {
+        <div class="col-md-6">
+            <div class="card p-4 h-100">
+                <h5><i class="bi bi-tags me-2 text-primary"></i>Extracted Skills</h5>
+                <div class="mt-2">
+                    @foreach (var skill in analysis.ExtractedSkills)
+                    {
+                        <span class="badge bg-primary me-1 mb-1 skill-badge">@skill</span>
+                    }
+                </div>
+            </div>
+        </div>
+    }
+
+    @* @if (analysis.Education.Count > 0)
+    {
+        <div class="col-md-6">
+            <div class="card p-4 h-100">
+                <h5><i class="bi bi-mortarboard me-2 text-success"></i>Education</h5>
+                <ul class="list-unstyled mt-2 mb-0">
+                    @foreach (var edu in analysis.Education)
+                    {
+                        <li class="mb-1"><i class="bi bi-check-circle text-success me-2"></i>@edu</li>
+                    }
+                </ul>
+            </div>
+        </div>
+    }
+
+    @if (analysis.WorkExperiences.Count > 0)
+    {
+        <div class="col-md-6">
+            <div class="card p-4 h-100">
+                <h5><i class="bi bi-briefcase me-2 text-warning"></i>Work Experience</h5>
+                <ul class="list-unstyled mt-2 mb-0">
+                    @foreach (var exp in analysis.WorkExperiences)
+                    {
+                        <li class="mb-1"><i class="bi bi-building me-2 text-muted"></i>@exp.JobTitle</li>
+                    }
+                </ul>
+            </div>
+        </div>
+    }
+
+    @if (analysis.Certifications.Count > 0)
+    {
+        <div class="col-md-6">
+            <div class="card p-4 h-100">
+                <h5><i class="bi bi-award me-2 text-info"></i>Certifications</h5>
+                <ul class="list-unstyled mt-2 mb-0">
+                    @foreach (var cert in analysis.Certifications)
+                    {
+                        <li class="mb-1"><i class="bi bi-patch-check text-info me-2"></i>@cert</li>
+                    }
+                </ul>
+            </div>
+        </div>
+    } *@
+
+    @if (analysis.Recommendations.Count > 0)
+    {
+        <div class="col-12">
+            <div class="card p-4">
+                <h5><i class="bi bi-lightbulb me-2 text-warning"></i>Recommendations</h5>
+                <ul class="mt-2 mb-0">
+                    @foreach (var rec in analysis.Recommendations)
+                    {
+                        <li class="mb-1">@rec</li>
+                    }
+                </ul>
+            </div>
+        </div>
+    }
+</div>
