@@ -1,0 +1,263 @@
+@{
+    ViewData["Title"] = "FAQ";
+}
+
+<div class="py-4 text-center">
+    <i class="bi bi-question-circle display-1 text-primary"></i>
+    <h1 class="mt-3 fw-bold">Frequently Asked Questions</h1>
+    <p class="lead text-muted">Everything you need to know about Smart Resume Analyzer.</p>
+</div>
+
+<div class="row">
+    <div class="col-lg-8 mx-auto">
+        <div class="accordion" id="faqAccordion">
+            <!-- General Questions -->
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                        <strong>What is Smart Resume Analyzer?</strong>
+                    </button>
+                </h2>
+                <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Smart Resume Analyzer is an AI-powered tool that helps you improve your resume using machine learning. It extracts technical skills, calculates an ATS (Applicant Tracking System) compatibility score, and provides personalized recommendations to enhance your resume's effectiveness.
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                        <strong>How does the resume analysis work?</strong>
+                    </button>
+                </h2>
+                <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        When you upload a resume, our system:
+                        <ol class="mt-2 mb-0">
+                            <li>Extracts text from PDF, DOCX, or TXT files</li>
+                            <li>Uses ML.NET machine learning models to identify technical skills</li>
+                            <li>Analyzes content structure, keywords, and formatting</li>
+                            <li>Calculates an overall ATS compatibility score (0-100)</li>
+                            <li>Generates actionable improvement recommendations</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                        <strong>Is Smart Resume Analyzer free to use?</strong>
+                    </button>
+                </h2>
+                <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Yes! Smart Resume Analyzer is completely free for personal and professional use. We believe everyone deserves access to powerful resume optimization tools.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Upload & File Questions -->
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                        <strong>What file formats are supported?</strong>
+                    </button>
+                </h2>
+                <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        We support the following file formats:
+                        <ul class="mt-2 mb-0">
+                            <li><strong>PDF</strong> (.pdf) - Text-based PDFs work best</li>
+                            <li><strong>Microsoft Word</strong> (.docx) - Recommended for best results</li>
+                            <li><strong>Plain Text</strong> (.txt) - Simple but effective</li>
+                        </ul>
+                        <p class="mt-2 mb-0 text-muted small">Note: Image-based PDFs or scanned documents may not be processed accurately as we cannot extract text from images.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                        <strong>Is there a file size limit?</strong>
+                    </button>
+                </h2>
+                <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Yes, the maximum file size is 10MB. Most resumes are well under this limit (typically 100KB-500KB). If your file is larger, try reducing image quality or removing unnecessary graphics.
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq6">
+                        <strong>Can I analyze multiple resumes?</strong>
+                    </button>
+                </h2>
+                <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Absolutely! You can upload and analyze as many resumes as you need. The History feature keeps track of all your previous analyses, allowing you to compare different versions or analyze resumes for different job applications.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Privacy & Security -->
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq7">
+                        <strong>Is my data secure and private?</strong>
+                    </button>
+                </h2>
+                <div id="faq7" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Yes, your privacy is our priority:
+                        <ul class="mt-2 mb-0">
+                            <li>Resumes are stored locally on your device/server, not in any cloud database</li>
+                            <li>No personal information is shared with third parties</li>
+                            <li>Analysis is performed locally using ML.NET models</li>
+                            <li>You can delete your resume data at any time</li>
+                        </ul>
+                        <p class="mt-2 mb-0 text-muted small">However, we recommend removing sensitive personal information (like phone numbers, addresses, or ID numbers) before uploading any resume to any online tool.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ATS Score -->
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq8">
+                        <strong>What is the ATS Score and how is it calculated?</strong>
+                    </button>
+                </h2>
+                <div id="faq8" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        The ATS Score (0-100) measures how well your resume will perform with Applicant Tracking Systems. It's calculated based on:
+                        <ul class="mt-2 mb-0">
+                            <li><strong>Keyword optimization</strong> - Presence of relevant industry keywords</li>
+                            <li><strong>Skills extraction</strong> - Number and relevance of detected technical skills</li>
+                            <li><strong>Content structure</strong> - Proper use of headings and sections</li>
+                            <li><strong>Formatting</strong> - ATS-friendly layout and readability</li>
+                            <li><strong>Length appropriateness</strong> - Optimal content density</li>
+                        </ul>
+                        <p class="mt-2 mb-0">Score ranges: <strong>80-100</strong> = Excellent, <strong>60-79</strong> = Good, <strong>40-59</strong> = Needs Improvement, <strong>Below 40</strong> = Significant changes recommended.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Skills Detection -->
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq9">
+                        <strong>How accurate is the skills detection?</strong>
+                    </button>
+                </h2>
+                <div id="faq9" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Our ML.NET-powered skills detection is trained on thousands of tech job descriptions and resumes. It can identify:
+                        <ul class="mt-2 mb-0">
+                            <li>Programming languages (Python, Java, C#, JavaScript, etc.)</li>
+                            <li>Frameworks and libraries (React, .NET, Spring, etc.)</li>
+                            <li>Tools and platforms (Docker, AWS, Git, etc.)</li>
+                            <li>Databases (SQL, MongoDB, PostgreSQL, etc.)</li>
+                            <li>Methodologies (Agile, Scrum, DevOps, etc.)</li>
+                        </ul>
+                        <p class="mt-2 mb-0 text-muted">Accuracy is typically 85-95% for standard technical terms. Uncommon abbreviations or company-specific tools may not be recognized.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recommendations -->
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq10">
+                        <strong>How should I use the recommendations?</strong>
+                    </button>
+                </h2>
+                <div id="faq10" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Our AI generates personalized suggestions to improve your resume. Here's how to use them effectively:
+                        <ol class="mt-2 mb-0">
+                            <li><strong>Review all recommendations</strong> - Each suggestion is tailored to your specific resume content</li>
+                            <li><strong>Prioritize high-impact changes</strong> - Focus on suggestions that affect your ATS score most</li>
+                            <li><strong>Add missing keywords</strong> - Incorporate relevant skills from the suggestions</li>
+                            <li><strong>Re-analyze after changes</strong> - Upload your improved resume to see score improvements</li>
+                            <li><strong>Use the Tips page</strong> - Combine our recommendations with general resume best practices</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Technical Questions -->
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq11">
+                        <strong>What technology powers this tool?</strong>
+                    </button>
+                </h2>
+                <div id="faq11" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Smart Resume Analyzer is built with:
+                        <ul class="mt-2 mb-0">
+                            <li><strong>ASP.NET Core</strong> - Modern, cross-platform web framework</li>
+                            <li><strong>ML.NET</strong> - Microsoft's machine learning framework for .NET</li>
+                            <li><strong>Bootstrap 5</strong> - Responsive, mobile-first front-end framework</li>
+                            <li><strong>Entity Framework Core</strong> - For data persistence and history tracking</li>
+                        </ul>
+                        <p class="mt-2 mb-0 text-muted small">The entire application is open-source and available on GitHub.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq12">
+                        <strong>Can I use this on mobile devices?</strong>
+                    </button>
+                </h2>
+                <div id="faq12" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Yes! Smart Resume Analyzer is fully responsive and works on all modern mobile devices (iOS, Android) as well as tablets and desktop computers. The interface automatically adjusts to fit your screen size.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Support -->
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq13">
+                        <strong>How can I get help or report issues?</strong>
+                    </button>
+                </h2>
+                <div id="faq13" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        If you encounter any issues or have questions:
+                        <ul class="mt-2 mb-0">
+                            <li>Check the <a asp-controller="Home" asp-action="Docs">Documentation</a> for detailed guides</li>
+                            <li>Visit our GitHub repository to report bugs or request features</li>
+                            <li>Review the <a asp-controller="Home" asp-action="Tips">Resume Tips</a> page for best practices</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="card mt-4">
+            <div class="card-body text-center">
+                <h5 class="card-title fw-semibold"><i class="bi bi-rocket-takeoff me-2"></i>Ready to optimize your resume?</h5>
+                <p class="text-muted mb-3">Upload your resume now and get instant AI-powered insights and recommendations.</p>
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                    <a asp-controller="Resume" asp-action="Analyze" class="btn btn-primary btn-lg">
+                        <i class="bi bi-cloud-upload me-2"></i>Start Analysis
+                    </a>
+                    <a asp-controller="Home" asp-action="Tips" class="btn btn-outline-secondary btn-lg">
+                        <i class="bi bi-lightbulb me-2"></i>View Tips
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

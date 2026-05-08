@@ -1,0 +1,128 @@
+@{
+    ViewData["Title"] = "Resume Tips";
+}
+
+<div class="py-4 text-center">
+    <i class="bi bi-lightbulb display-1 text-warning"></i>
+    <h1 class="mt-3 fw-bold">Resume Writing Tips</h1>
+    <p class="lead text-muted">Maximize your resume's impact with these AI-powered recommendations.</p>
+</div>
+
+<div class="row g-4">
+    <!-- Content & Structure -->
+    <div class="col-md-6">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title fw-semibold"><i class="bi bi-file-text me-2"></i>Content & Structure</h5>
+                <ul class="list-unstyled mt-3">
+                    <li class="mb-3">
+                        <strong>Keep it concise:</strong> Aim for 1-2 pages. Recruiters spend an average of 6-7 seconds scanning a resume.
+                    </li>
+                    <li class="mb-3">
+                        <strong>Use action verbs:</strong> Start bullet points with words like "Developed," "Led," "Implemented," "Optimized."
+                    </li>
+                    <li class="mb-3">
+                        <strong>Quantify achievements:</strong> Use numbers and metrics (e.g., "Increased sales by 25%," "Managed a team of 10").
+                    </li>
+                    <li class="mb-3">
+                        <strong>Tailor for each job:</strong> Customize your resume to match the job description and highlight relevant experience.
+                    </li>
+                    <li class="mb-3">
+                        <strong>Clear sections:</strong> Use standard headings: Contact Info, Summary, Experience, Education, Skills.
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- ATS Optimization -->
+    <div class="col-md-6">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title fw-semibold"><i class="bi bi-robot me-2"></i>ATS Optimization</h5>
+                <ul class="list-unstyled mt-3">
+                    <li class="mb-3">
+                        <strong>Use standard headings:</strong> ATS systems recognize "Work Experience," "Education," "Skills" better than creative titles.
+                    </li>
+                    <li class="mb-3">
+                        <strong>Incorporate keywords:</strong> Mirror language from the job posting. Our analyzer helps identify missing keywords.
+                    </li>
+                    <li class="mb-3">
+                        <strong>Simple formatting:</strong> Avoid tables, graphics, and unusual fonts. Stick to standard fonts like Arial, Calibri, or Times New Roman.
+                    </li>
+                    <li class="mb-3">
+                        <strong>File format:</strong> Submit as .docx or PDF (text-based, not image-based) for best ATS compatibility.
+                    </li>
+                    <li class="mb-3">
+                        <strong>Spell out acronyms:</strong> Write "Search Engine Optimization (SEO)" on first mention to catch both versions.
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row g-4 mt-4">
+    <!-- Skills Section -->
+    <div class="col-md-6">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title fw-semibold"><i class="bi bi-braces-asterisk me-2"></i>Skills Section Best Practices</h5>
+                <ul class="list-unstyled mt-3">
+                    <li class="mb-3">
+                        <strong>Categorize skills:</strong> Group into "Technical Skills," "Languages," "Tools & Frameworks," "Soft Skills."
+                    </li>
+                    <li class="mb-3">
+                        <strong>Be specific:</strong> Instead of "Programming," list "Python, Java, C#, JavaScript."
+                    </li>
+                    <li class="mb-3">
+                        <strong>Match the job:</strong> Prioritize skills mentioned in the job description.
+                    </li>
+                    <li class="mb-3">
+                        <strong>Show proficiency levels:</strong> Consider indicating "Expert," "Proficient," "Familiar" where appropriate.
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Common Mistakes -->
+    <div class="col-md-6">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title fw-semibold"><i class="bi bi-exclamation-triangle me-2"></i>Common Mistakes to Avoid</h5>
+                <ul class="list-unstyled mt-3">
+                    <li class="mb-3">
+                        <strong>Typos and grammar errors:</strong> Always proofread. Use tools like Grammarly or have someone else review.
+                    </li>
+                    <li class="mb-3">
+                        <strong>Generic objective statements:</strong> Replace with a targeted professional summary highlighting your value.
+                    </li>
+                    <li class="mb-3">
+                        <strong>Irrelevant information:</strong> Remove outdated or unrelated experience that doesn't support your candidacy.
+                    </li>
+                    <li class="mb-3">
+                        <strong>Unexplained employment gaps:</strong> Address gaps briefly or use a functional resume format if needed.
+                    </li>
+                    <li class="mb-3">
+                        <strong>Personal information:</strong> Don't include age, marital status, or photos (unless specifically requested).
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row g-4 mt-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body text-center">
+                <h5 class="card-title fw-semibold"><i class="bi bi-magic me-2"></i>Let Smart Resume Analyzer Help</h5>
+                <p class="text-muted mb-3">Upload your resume to get an instant AI-powered analysis, including skill extraction, ATS score, and personalized improvement recommendations.</p>
+                <a asp-controller="Resume" asp-action="Analyze" class="btn btn-primary btn-lg">
+                    <i class="bi bi-cloud-upload me-2"></i>Analyze Your Resume Now
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

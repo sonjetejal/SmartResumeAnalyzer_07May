@@ -116,5 +116,9 @@ public class HomeController : Controller
 
     public IActionResult Privacy() => View();
 
+    public IActionResult Tips() => View();
+
+    public IActionResult FAQ() => View();
+
     public IActionResult Error() => View();
 }
