@@ -54,9 +54,6 @@ else
                             {
                                 <a asp-action="Results" asp-route-id="@resume.Id" class="btn btn-sm btn-outline-primary me-1">Results</a>
                                 <a asp-action="ATSScore" asp-route-id="@resume.Id" class="btn btn-sm btn-outline-secondary me-1">ATS</a>
-                                var dc = ViewBag.DownloadCounts as Dictionary<string, int>;
-                                var count = dc != null && dc.ContainsKey(resume.Id) ? dc[resume.Id] : 0;
-                                <span class="badge bg-info text-dark">Downloads: @count</span>
                             }
                         </td>
                     </tr>
