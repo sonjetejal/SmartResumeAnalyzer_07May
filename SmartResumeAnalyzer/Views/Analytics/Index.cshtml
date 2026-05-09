@@ -104,33 +104,6 @@ else
             </div>
         </div>
 
-        <!-- Category Scores Chart -->
-        <div class="col-lg-6">
-            <div class="card h-100 border-0 shadow-sm">
-                <div class="card-header bg-transparent border-0 pt-4 px-4">
-                    <h5 class="fw-semibold mb-0"><i class="bi bi-pie-chart me-2"></i>Average Category Scores</h5>
-                </div>
-                <div class="card-body">
-                    <canvas id="categoryScoresChart" height="250"></canvas>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Charts Row 2 -->
-    <div class="row g-4 mb-4">
-        <!-- Top Skills Chart -->
-        <div class="col-lg-6">
-            <div class="card h-100 border-0 shadow-sm">
-                <div class="card-header bg-transparent border-0 pt-4 px-4">
-                    <h5 class="fw-semibold mb-0"><i class="bi bi-layers me-2"></i>Top 10 Skills</h5>
-                </div>
-                <div class="card-body">
-                    <canvas id="topSkillsChart" height="250"></canvas>
-                </div>
-            </div>
-        </div>
-
         <!-- Monthly Trend Chart -->
         <div class="col-lg-6">
             <div class="card h-100 border-0 shadow-sm">
@@ -144,32 +117,6 @@ else
         </div>
     </div>
 
-    <!-- Charts Row 3 -->
-    <div class="row g-4 mb-4">
-        <!-- Experience Level Distribution -->
-        <div class="col-lg-6">
-            <div class="card h-100 border-0 shadow-sm">
-                <div class="card-header bg-transparent border-0 pt-4 px-4">
-                    <h5 class="fw-semibold mb-0"><i class="bi bi-briefcase me-2"></i>Experience Level Distribution</h5>
-                </div>
-                <div class="card-body">
-                    <canvas id="experienceLevelChart" height="250"></canvas>
-                </div>
-            </div>
-        </div>
-
-        <!-- Education Distribution -->
-        <div class="col-lg-6">
-            <div class="card h-100 border-0 shadow-sm">
-                <div class="card-header bg-transparent border-0 pt-4 px-4">
-                    <h5 class="fw-semibold mb-0"><i class="bi bi-mortarboard me-2"></i>Education Distribution</h5>
-                </div>
-                <div class="card-body">
-                    <canvas id="educationChart" height="250"></canvas>
-                </div>
-            </div>
-        </div>
-    </div>
 }
 
 @section Scripts {
@@ -222,74 +169,6 @@ else
                             grid: { color: 'rgba(0,0,0,0.05)' }
                         },
                         x: {
-                            grid: { display: false }
-                        }
-                    }
-                }
-            });
-
-            // Category Scores Chart
-            const categoryCtx = document.getElementById('categoryScoresChart').getContext('2d');
-            new Chart(categoryCtx, {
-                type: 'radar',
-                data: {
-                    labels: [@Html.Raw(string.Join(", ", Model.CategoryScores.Select(c => $"'{c.Category}'")))],
-                    datasets: [{
-                        label: 'Average Score',
-                        data: [@Html.Raw(string.Join(", ", Model.CategoryScores.Select(c => c.AverageScore)))],
-                        backgroundColor: 'rgba(13, 110, 253, 0.2)',
-                        borderColor: 'rgba(13, 110, 253, 1)',
-                        borderWidth: 2,
-                        pointBackgroundColor: 'rgba(13, 110, 253, 1)',
-                        pointBorderColor: '#fff',
-                        pointHoverBackgroundColor: '#fff',
-                        pointHoverBorderColor: 'rgba(13, 110, 253, 1)'
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                        r: {
-                            beginAtZero: true,
-                            max: 100,
-                            ticks: { stepSize: 20 }
-                        }
-                    },
-                    plugins: {
-                        legend: { display: false }
-                    }
-                }
-            });
-
-            // Top Skills Chart
-            const skillsCtx = document.getElementById('topSkillsChart').getContext('2d');
-            new Chart(skillsCtx, {
-                type: 'bar',
-                data: {
-                    labels: [@Html.Raw(string.Join(", ", Model.TopSkills.Select(s => $"'{s.SkillName}'")))],
-                    datasets: [{
-                        label: 'Frequency',
-                        data: [@Html.Raw(string.Join(", ", Model.TopSkills.Select(s => s.Frequency)))],
-                        backgroundColor: 'rgba(13, 110, 253, 0.7)',
-                        borderColor: 'rgba(13, 110, 253, 1)',
-                        borderWidth: 2
-                    }]
-                },
-                options: {
-                    indexAxis: 'y',
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: { display: false }
-                    },
-                    scales: {
-                        x: {
-                            beginAtZero: true,
-                            ticks: { stepSize: 1 },
-                            grid: { color: 'rgba(0,0,0,0.05)' }
-                        },
-                        y: {
                             grid: { display: false }
                         }
                     }
@@ -363,66 +242,6 @@ else
                 }
             });
 
-            // Experience Level Chart
-            const expCtx = document.getElementById('experienceLevelChart').getContext('2d');
-            new Chart(expCtx, {
-                type: 'doughnut',
-                data: {
-                    labels: [@Html.Raw(string.Join(", ", Model.ExperienceLevels.Select(e => $"'{e.Level}'")))],
-                    datasets: [{
-                        data: [@Html.Raw(string.Join(", ", Model.ExperienceLevels.Select(e => e.Count)))],
-                        backgroundColor: [
-                            'rgba(13, 110, 253, 0.8)',
-                            'rgba(25, 135, 84, 0.8)',
-                            'rgba(255, 193, 7, 0.8)',
-                            'rgba(220, 53, 69, 0.8)',
-                            'rgba(111, 66, 193, 0.8)'
-                        ],
-                        borderColor: '#fff',
-                        borderWidth: 2
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            position: 'right'
-                        }
-                    }
-                }
-            });
-
-            // Education Chart
-            const eduCtx = document.getElementById('educationChart').getContext('2d');
-            new Chart(eduCtx, {
-                type: 'pie',
-                data: {
-                    labels: [@Html.Raw(string.Join(", ", Model.EducationDistribution.Keys.Select(k => $"'{k}'")))],
-                    datasets: [{
-                        data: [@Html.Raw(string.Join(", ", Model.EducationDistribution.Values))],
-                        backgroundColor: [
-                            'rgba(13, 110, 253, 0.8)',
-                            'rgba(25, 135, 84, 0.8)',
-                            'rgba(255, 193, 7, 0.8)',
-                            'rgba(220, 53, 69, 0.8)',
-                            'rgba(13, 202, 240, 0.8)',
-                            'rgba(111, 66, 193, 0.8)'
-                        ],
-                        borderColor: '#fff',
-                        borderWidth: 2
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            position: 'right'
-                        }
-                    }
-                }
-            });
             </text>
         }
     </script>
