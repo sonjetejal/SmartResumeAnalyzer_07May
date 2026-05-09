@@ -54,6 +54,9 @@
                     <li class="nav-item">
                         <a class="nav-link" asp-controller="Resume" asp-action="History"><i class="bi bi-clock-history me-1"></i>History</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Analytics" asp-action="Index"><i class="bi bi-graph-up-arrow me-1"></i>Analytics</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -63,9 +66,6 @@
         @RenderBody()
     </main>
 
-    <footer class="text-center text-muted py-3 border-top mt-4">
-        <small>&copy; @DateTime.Now.Year Smart Resume Analyzer</small>
-    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
